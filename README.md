@@ -20,3 +20,7 @@ let g:open_vim_patterns = [
 
 `gf` will then try each matcher in order, and execute the handler corresponding to the first
 matching matcher (with `'<VALUE>'` replaced with the matched string).
+
+If you'd rather configure your own binding, you can set `g:open_vim_no_bindings` to something non
+zero and open.vim won't create any bindings. In that case, the only function you need to use is
+`open#handle(word)`, where word is the string that will be matched against.
