@@ -7,7 +7,7 @@ function! s:matchingHandler(word)
   for pattern in g:open_vim_patterns
     if match(a:word, pattern[0]) != -1
       let match = matchlist(a:word, pattern[0])[0]
-      return substitute(pattern[1], "<VALUE>", match, 'gc')
+      return substitute(pattern[1], "<VALUE>", escape(match, '#%'), 'gc')
     endif
   endfor
   return "norm! gf"
